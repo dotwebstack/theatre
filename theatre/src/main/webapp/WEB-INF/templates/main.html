@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Spring Thyme Seed Starter Manager</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<h1>Theatre met Spring en Thymeleaf</h1>
+
+<h1>appearances</h1>
+<hr/>
+<div th:each="appearance : ${appearances}">
+  <div
+      th:replace="@{'appearances/' + ${appearance.appearance}} :: ${appearance.appearance}(${appearance})"/>
+</div>
+
+
+</body>
+</html>

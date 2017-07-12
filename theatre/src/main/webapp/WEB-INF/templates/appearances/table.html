@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="table(table)" class="tableappearance">
+  <p>Table!</p>
+  <p th:text="${table.name}">Table name</p>
+
+
+  <div th:if="${table.tree}" th:include="~{appearances/tree :: tree(${table.tree})}">Tree!</div>
+
+</div>
+</body>
+</html>
