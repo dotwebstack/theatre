@@ -3,6 +3,7 @@ package org.dotwebstack.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -55,8 +56,15 @@ public class WebConfig extends WebMvcConfigurerAdapter {
   @Override
   public void addResourceHandlers(final ResourceHandlerRegistry registry) {
     super.addResourceHandlers(registry);
-    registry.addResourceHandler("/images/**").addResourceLocations("/images/");
-    registry.addResourceHandler("/css/**").addResourceLocations("/css/");
-    registry.addResourceHandler("/js/**").addResourceLocations("/js/");
+    registry.addResourceHandler("/images/**").addResourceLocations("/WEB-INF/images/");
+    registry.addResourceHandler("/css/**").addResourceLocations("/WEB-INF/css/");
+    registry.addResourceHandler("/js/**").addResourceLocations("/WEB-INF/js/");
+//    registry.addResourceHandler("/webjars/**")
+//        .addResourceLocations("/META-INF/resources/webjars/");
+  }
+
+  @Override
+  public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+    configurer.enable();
   }
 }
