@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
-  @GetMapping("/**")
+  @GetMapping("/{excluded:(?!webjars)(?!images)(?!css)(?!js).*}/**")
   public String get(Model model) {
     List<Appearance> appearances = new ArrayList<>();
     appearances.add(new TableAppearance("myTable"));
