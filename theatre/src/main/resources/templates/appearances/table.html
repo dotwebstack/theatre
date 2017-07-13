@@ -6,7 +6,7 @@
   <p th:text="${table.name}">Table name</p>
 
 
-  <div th:if="${table.tree}" th:include="~{appearances/tree :: tree(${table.tree})}">Tree!</div>
+  <div th:if="${table.tree}" th:include="appearances/tree :: tree(${table.tree})">Tree!</div>
 
 </div>
 </body>
