@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div th:fragment="tree(tree)" class="nav-tree">
+<div th:fragment="tree(tree)" class="nav-tree" th:id="${tree.name}">
 
   <ul th:replace="appearances/tree :: leaf(${tree.nodes})"/>
 
