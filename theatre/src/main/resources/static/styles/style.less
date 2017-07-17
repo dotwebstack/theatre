@@ -1,0 +1,117 @@
+/**
+ * DESCRIPTION 
+ * CSS with styling for the Linked Data Theatre
+ *
+ **/
+
+@nav-tree-border-color: #C9C9C9;
+@default-background-color: #FFF;
+
+@media (min-width: 1280px) {
+  .container {
+    width: 97%;
+  }
+}
+
+/* Styling for footer */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 100px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 100px;
+
+  > .container {
+    font-size: 90%;
+  }
+}
+
+.footer.bg-primary a {
+  color: @default-background-color;
+}
+
+/* ------ */
+/*Tree view styling*/
+.nav-tree {
+  color: #6C7587;
+  background-color: @default-background-color;
+  padding: 20px 10px 30px;
+
+  a {
+    color: #585858;
+    cursor: pointer;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+  a.selected {
+    color: #2AB2EA;
+  }
+
+  ul, .nav-tree li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    padding-left: 1em;
+
+    li:last-child > ul {
+      border-left: 1px solid @default-background-color;
+      margin-left: -15px;
+    }
+  }
+
+  li {
+    padding-left: 1em;
+    border: 1px solid @nav-tree-border-color;
+    border-top: 0;
+    border-right: 0;
+    padding-top: 10px;
+
+    p {
+      margin: 0;
+      background: @default-background-color;
+      position: relative;
+      top: 0.5em;
+      line-height: 1;
+      z-index: 1;
+    }
+    ul {
+      border-top: 1px solid @nav-tree-border-color;
+      margin-left: -1em;
+      padding-left: 2em;
+    }
+  }
+  li.has-child {
+    border-bottom: 0;
+    position: relative;
+
+    i {
+      position: absolute;
+      left: -.5em;
+      top: 1.3em;
+      color: @nav-tree-border-color;
+      cursor: pointer;
+      background-color: #fff;
+      z-index: 1;
+    }
+  }
+  li.has-child.tree-collapsed {
+    border-bottom: 1px solid @nav-tree-border-color;
+  }
+}
+
+/* ------------------- */

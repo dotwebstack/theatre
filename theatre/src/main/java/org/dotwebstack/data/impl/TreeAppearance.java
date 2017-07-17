@@ -5,7 +5,14 @@ package org.dotwebstack.data.impl;
  */
 public class TreeAppearance extends AppearanceBase {
 
-  public TreeAppearance(String name) {
+  private final TreeNode[] nodes;
+
+  public TreeAppearance(String name, TreeNode... nodes) {
     super(name, "tree");
+    this.nodes = nodes;
+  }
+
+  public TreeNode[] getNodes() {
+    return nodes;
   }
 }

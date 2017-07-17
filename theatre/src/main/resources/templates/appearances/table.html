@@ -1,12 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div th:fragment="table(table)" class="tableappearance">
-  <p>Table!</p>
-  <p th:text="${table.name}">Table name</p>
+<div th:fragment="table(table)" class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Table!</h3>
+  </div>
+  <div class="panel-body">
 
+    <table class="table table-striped table-bordered">
+      <tbody>
+      <tr>
+        <td>
+          <div>Name:</div>
+        </td>
+        <td>
+          <div th:text="${table.name}">Table name</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div>Name:</div>
+        </td>
+        <td>
+          <div th:text="${table.name}">Table name</div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div>Name:</div>
+        </td>
+        <td>
+          <div th:text="${table.name}">Table name</div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
 
-  <div th:if="${table.tree}" th:include="appearances/tree :: tree(${table.tree})">Tree!</div>
+    <div th:if="${table.tree}" th:include="appearances/tree :: tree(${table.tree})">Tree!</div>
+  </div>
 
 </div>
 </body>

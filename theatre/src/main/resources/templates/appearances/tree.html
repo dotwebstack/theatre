@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div th:fragment="tree(tree)" class="treeappearance">
+<div th:fragment="tree(tree)" class="nav-tree">
 
-  <hr/>
-  <p>Tree!</p>
-  <p th:text="${tree.name}">Tree name</p>
-  <hr/>
+  <ul th:replace="appearances/tree :: leaf(${tree.nodes})"/>
 
 </div>
+
+<ul th:fragment="leaf(nodes)">
+  <li th:each="child : ${nodes}"
+      th:class="${child.hasChildren ? 'has-child' : ''}">
+
+    <p th:text="${child.name}">Node name</p>
+
+    <a href="#" th:if="${child.hasChildren}">
+      <i class="fa fa-minus-square"/>
+    </a>
+
+    <div th:if="${child.hasChildren}">
+      <ul th:replace="appearances/tree :: leaf(${child.children})" class="hide"/>
+    </div>
+
+  </li>
+
+</ul>
+
+
 </body>
 </html>
